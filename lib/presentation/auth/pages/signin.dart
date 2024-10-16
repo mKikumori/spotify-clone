@@ -4,6 +4,7 @@ import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/presentation/auth/pages/signup.dart';
+import 'package:spotify/presentation/root/pages/root.dart';
 
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
@@ -26,7 +27,15 @@ class SigninPage extends StatelessWidget {
             const SizedBox(height: 20),
             _passwordField(context),
             const SizedBox(height: 20),
-            BasicAppButton(onPressed: () {}, title: 'Sign In')
+            BasicAppButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => const Root()),
+                      (route) => false);
+                },
+                title: 'Sign In')
           ],
         ),
       ),
